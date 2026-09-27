@@ -1,0 +1,6 @@
+yolov4.weights
+yolov4.cfg
+object.jpg
+.venv/
+venv/
+__pycache__/
