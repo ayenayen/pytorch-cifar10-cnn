@@ -28,6 +28,18 @@ Proyek ini adalah implementasi dasar *Convolutional Neural Network* (CNN) dari n
 - **Arsitektur:** 2 Layer Konvolusi (`Conv2d`), Layer MaxPooling (`MaxPool2d`), Aktivasi ReLU, dan 2 Layer Fully Connected (`Linear`).
 - **Hasil Training:** Model dilatih selama 5 Epoch menggunakan *Optimizer Adam* dan mencapai **Akurasi ~71%** pada data *testing* menggunakan akselerasi GPU (CUDA).
 
+## 📁 Proyek 3: Transfer Learning & Fine-Tuning dengan ResNet50 (Keras)
+**File Utama:** `transferlearn.ipynb`
+
+Proyek ini mendemonstrasikan bagaimana memanfaatkan model raksasa yang sudah dilatih (Pre-trained Model) untuk mengklasifikasikan gambar kustom menggunakan teknik *Transfer Learning* dan *Fine-Tuning* di TensorFlow/Keras.
+
+**Fitur & Teknologi:**
+- **Arsitektur ResNet50:** Menggunakan bobot *ImageNet* sebagai *feature extractor* dasar.
+- **Transfer Learning (Freezing):** Membekukan seluruh layer dasar dari ResNet50 untuk mencegah *catastrophic forgetting* pada tahap awal, menghemat waktu komputasi secara signifikan.
+- **Custom Classification Head:** Menambahkan `GlobalAveragePooling2D` dan `Dense(128, ReLU)` untuk memadatkan fitur, diakhiri dengan `Softmax` untuk output multi-kelas.
+- **Data Pipeline dengan ImageDataGenerator:** Melakukan *loading* gambar otomatis dari direktori dengan *rescaling* (1/255) dan pembagian data otomatis (*Validation Split* 20%).
+- **Advanced Fine-Tuning:** Membuka (*unfreeze*) 10 layer terakhir dari model dasar dan melatih ulang dengan *learning rate* sangat kecil (0.0001) menggunakan *optimizer Adam* untuk meningkatkan akurasi spesifik pada *dataset* target tanpa merusak pemahaman dasar model.
+
 ---
 
 > Dibuat sebagai bagian dari pembelajaran dan dokumentasi perjalanan menjadi AI Engineer.

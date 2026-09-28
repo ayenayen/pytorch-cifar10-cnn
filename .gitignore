@@ -4,3 +4,12 @@ object.jpg
 .venv/
 venv/
 __pycache__/
+
+# Datasets
+dataset/
+data/
+
+# Temporary python scripts
+fix.py
+create_env.py
+implementation_plan.md
